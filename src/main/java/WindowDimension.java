@@ -24,7 +24,7 @@ public class WindowDimension {
 
     public int getWindowWidth(int windowWidth) {
         this.windowWidth = windowWidth;
-        return windowWidth;
+        return windowWidth -10;
     }
     public int getWindowWidth() {
         return windowWidth - 10;

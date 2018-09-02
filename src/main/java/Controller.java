@@ -74,10 +74,13 @@ public class Controller implements Initializable {
     public void resizeMapCanvas(int newWidth, int newHeight){
         GraphicsContext gc;
         gc = mapCanvas.getGraphicsContext2D();
+//        System.out.println(newWidth + " " + newHeight);
         mapCanvas.setWidth(newWidth);
         mapCanvas.setHeight(newHeight);
-        gc.setFill(Color.WHITE);
+        gc.setFill(Color.GREY);
         gc.fillRect(0, 0, newWidth, newHeight);
+
+        gc.strokeOval(1,1,50,100);
     }
 
     public void searchForPorts() {
