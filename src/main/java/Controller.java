@@ -21,6 +21,9 @@ import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+    int initialWidth = 600;
+    int initialHeight = 296;
+    WindowDimension windowDimension = new WindowDimension(initialWidth, initialHeight);
 
 
 
@@ -46,29 +49,15 @@ public class Controller implements Initializable {
 
     @FXML
     public void getSize(ActionEvent actionEvent) {
-
-
+        System.out.println(windowDimension.getWindowWidth() + " " + windowDimension.getWindowHeight());
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        int initialWidth = 600;
-        int initialHeight = 296;
-
-        WindowDimension windowDimension = new WindowDimension(initialWidth, initialHeight);
-
-
-//        gpMap.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> System.out.println("Width: " + newSceneWidth));
-//        gpMap.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> System.out.println("Height: " + newSceneHeight));
 
         gpMap.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> resizeMapCanvas(windowDimension.getWindowWidth(newSceneWidth.intValue()), windowDimension.getWindowHeight()));
         gpMap.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> resizeMapCanvas(windowDimension.getWindowWidth(), windowDimension.getWindowHeight(newSceneHeight.intValue())));
-
-
-
-
-
     }
 
     public void resizeMapCanvas(int newWidth, int newHeight){
@@ -80,7 +69,8 @@ public class Controller implements Initializable {
         gc.setFill(Color.GREY);
         gc.fillRect(0, 0, newWidth, newHeight);
 
-        gc.strokeOval(1,1,50,100);
+        gc.strokeOval(newWidth/2-1,newHeight/2-1,2,2);
+
     }
 
     public void searchForPorts() {
