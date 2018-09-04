@@ -45,7 +45,7 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <Button fx:id="btn1" mnemonicParsing="false" onAction="#getSize" text="Button" />
+            <Button fx:id="btn1" mnemonicParsing="false" onAction="#readSerialGps" text="Button" />
          </children>
       </VBox>
       <TabPane prefHeight="261.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="1">
